@@ -57,7 +57,7 @@
           var items = result.data.menu_items;
           var foundItems = [];
           for(var i=0;i<items.length;i++){
-            if(items[i].description.indexOf(searchTerm)!=-1)
+            if(items[i].description.toUpperCase().indexOf(searchTerm.toUpperCase())!=-1)
               foundItems.push(items[i]);
           }
           return foundItems;
