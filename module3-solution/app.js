@@ -14,8 +14,8 @@
       restrict: "E",
       templateUrl: 'foundItems.html',
       scope: {
-        foundItems: '=',
-        onRemove: '='
+        foundItems: '<',
+        onRemove: '&'
       }
     };
     return ddo;
@@ -25,7 +25,7 @@
     var controller = this;
     controller.searchTerm = "";
     controller.foundItems = [];
-	controller.errorMessage = "";
+    controller.errorMessage = "";
     controller.getMatchedMenuItems = function(){
 	  if(controller.searchTerm=="")
 		controller.errorMessage = "Nothing found";
@@ -41,8 +41,8 @@
 		})
 	  }
 	};
-    controller.removeItem = function(itemIndex){
-      controller.foundItems.splice(itemIndex,1);
+    controller.removeItem = function(index){
+      controller.foundItems.splice(index,1);
     };
   }
 
