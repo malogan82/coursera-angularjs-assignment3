@@ -27,9 +27,10 @@
     controller.foundItems = [];
     controller.errorMessage = "";
     controller.getMatchedMenuItems = function(){
-	  if(controller.searchTerm=="")
+	  if(controller.searchTerm==""){
 		controller.errorMessage = "Nothing found";
-	  else{
+		controller.foundItems = [];
+	  }else{
                 controller.errorMessage = "";
 		var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
 		promise.then(function(response) {
@@ -41,7 +42,7 @@
 		})
 	  }
 	};
-    controller.removeItem = function(index){
+      controller.removeItem = function(index){
       controller.foundItems.splice(index,1);
     };
   }
